@@ -1,0 +1,32 @@
+{
+  "extends": "./build-config/tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./build",
+    // 帮助 vscode 识别 alias
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+      "@pages/*": [
+        "src/pages/*"
+      ],
+      "@common/*": [
+        "src/common/*"
+      ],
+      "@store/*": [
+        "src/store/*"
+      ],
+      "@my-types/*": [
+        "src/my-types/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+    }
+  },
+  // 设置一个默认的文本读取目录，如果没有此配置则读取所有文件，除了配置 exclude
+  "include": [
+    "./src/**/*"
+  ]
+}
