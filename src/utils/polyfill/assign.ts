@@ -1,3 +1,11 @@
+/* eslint-disable */
+// @ts-nocheck
+
+/**
+ * 由于部分三方插件提供的编译后的包存在 ie 不兼容的情况
+ * 所以有时候需要我们自己在模块代码的入口以侵入业务代码的方式引入
+ * 从而实现兼容的效果
+ */
 if (typeof Object.assign !== 'function') {
   // Must be writable: true, enumerable: false, configurable: true
   Object.defineProperty(Object, 'assign', {

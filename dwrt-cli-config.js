@@ -4,6 +4,6 @@
  */
 module.exports = {
   //  是否进行编译资源分析检测 默认关闭
-  // analysisBuildAssets: false,
-  bundleDllReact: true,
+  analysisBuildAssets: false,
+  bundleDllReact: false,
 };
