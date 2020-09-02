@@ -6,11 +6,11 @@ const Express = require('express');
 // webpack
 const Webpack = require('webpack');
 // webpack 服务器中间件
-const webpackDevMiddleware = require('webpack-dev-middleware');
+const WebpackDevMiddleware = require('webpack-dev-middleware');
 // webpack 热重载
-const webpackHotMiddleware = require('webpack-hot-middleware');
+const WebpackHotMiddleware = require('webpack-hot-middleware');
 // http 路由中间件
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const { CreateProxyMiddleware } = require('http-proxy-middleware');
 
 // 开发环境需要被代理的路由列表
 // 代理前：http://localhost:8080/user/login
@@ -38,13 +38,13 @@ module.exports = function (port, webpackConfig) {
         changeOrigin: true,
       };
     }
-    app.use(item.url, createProxyMiddleware(context));
+    app.use(item.url, CreateProxyMiddleware(context));
   });
 
   // webpack 编译配置后，加入服务器中间件
   const webpackCompiler = Webpack(webpackConfig);
   app.use(
-    webpackDevMiddleware(webpackCompiler, {
+    WebpackDevMiddleware(webpackCompiler, {
       quiet: true,
       // 决定 html 文件中的静态资源链接前是否有前缀
       publicPath: webpackConfig.output.publicPath,
@@ -59,7 +59,7 @@ module.exports = function (port, webpackConfig) {
 
   // 热更新第二步： 使用与服务器中间件相同的编译配置启动热重载中间件
   app.use(
-    webpackHotMiddleware(webpackCompiler, {
+    WebpackHotMiddleware(webpackCompiler, {
       log: false,
     })
   );

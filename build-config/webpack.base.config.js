@@ -1,14 +1,14 @@
 // 使用 path 模块将路径的表现形式统一
 const path = require('path');
 const webpack = require('webpack');
+// 拷贝文件到编译目录下
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 // 动态生成 html
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // 抽取 css https://github.com/webpack-contrib/mini-css-extract-plugin#getting-started
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // 优化构建日志插件,显示编译结果, 与 stats 配合使用，不打印额外的编译内容，只显示错误或者编译结果
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-// 拷贝文件到编译目录下
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const {
   BUILD_PATH,
@@ -181,7 +181,6 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
       // 全局宏变量
       new webpack.DefinePlugin(
         Object.assign(
-          {},
           {
             // 项目版本信息
             SITE_INFO: JSON.stringify(SITE_INFO),

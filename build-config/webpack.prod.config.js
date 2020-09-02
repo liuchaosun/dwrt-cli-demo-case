@@ -123,6 +123,13 @@ module.exports = function ({ publicPathName, defineVariable, entries, htmlArray 
         chunkFilename: CSS_PATH + '[name].[contenthash:8].css',
       }),
 
+      // 控制台打印编译进度
+      new Webpack.ProgressPlugin({
+        handler(percentage, msg) {
+          console.log(percentage, msg);
+        },
+      }),
+
       // 自定义编译出错后的处理, 构建完毕会触发 done
       function () {
         this.hooks.done.tap('done', (stats) => {

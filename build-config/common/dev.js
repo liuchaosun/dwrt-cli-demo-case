@@ -8,9 +8,9 @@ const pageConf = require('./module-config');
 // 2
 const WebpackFunc = require('../webpack.dev.config');
 // 3
-const creatServer = require('../creat-server');
+const CreatServer = require('../creat-server');
 
-creatServer(8080, WebpackFunc(pageConf));
+CreatServer(8080, WebpackFunc(pageConf));
 /**
  * 已完成
  */

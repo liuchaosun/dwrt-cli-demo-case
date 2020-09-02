@@ -1,17 +1,8 @@
-const webpack = require('webpack');
-// 打印编译进度插件
-const ProcessPlugin = require('webpack/lib/ProgressPlugin');
+const Webpack = require('webpack');
 
 module.exports = function (config) {
   // 编译文件解析
-  const compiler = webpack(config);
-
-  // 控制台打印编译进度
-  compiler.apply(
-    new ProcessPlugin((percentage, msg) => {
-      console.log(percentage * 100 + '%', msg);
-    })
-  );
+  const compiler = Webpack(config);
 
   // 启动编译
   compiler.run((err, stats) => {
