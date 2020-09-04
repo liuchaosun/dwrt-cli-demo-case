@@ -10,7 +10,7 @@ const WebpackDevMiddleware = require('webpack-dev-middleware');
 // webpack 热重载
 const WebpackHotMiddleware = require('webpack-hot-middleware');
 // http 路由中间件
-const { CreateProxyMiddleware } = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // 开发环境需要被代理的路由列表
 // 代理前：http://localhost:8080/user/login
@@ -38,7 +38,7 @@ module.exports = function (port, webpackConfig) {
         changeOrigin: true,
       };
     }
-    app.use(item.url, CreateProxyMiddleware(context));
+    app.use(item.url, createProxyMiddleware(context));
   });
 
   // webpack 编译配置后，加入服务器中间件
