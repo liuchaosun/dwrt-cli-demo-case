@@ -9,8 +9,8 @@
     "eslint": "eslint --fix ./src --ext .ts,.tsx,.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "dll": "webpack --config ./build-config/webpack.dll.config.js",
-    "dev:com": "node ./build-config/common/dev.js",
-    "build:com": "node ./build-config/common/prod.js"
+    "dev": "node ./build-config/common/dev.js",
+    "build": "node ./build-config/common/prod.js"
   },
   "keywords": [
     "docker",
@@ -97,6 +97,7 @@
   "dependencies": {
     "antd": "^4.6.1",
     "core-js": "^3.6.5",
+    "crypto-js": "^4.0.0",
     "lodash": "^4.17.20",
     "moment": "^2.27.0",
     "react": "^16.13.1",
