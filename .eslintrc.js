@@ -51,9 +51,18 @@ module.exports = {
     'no-eq-null': 2,
     //  debugger 警告
     'no-debugger': 1,
-    'no-console': 1,
+    'no-console': 0,
+    // 对var禁止
+    'no-var': 2,
     // 对象，换行后字段末尾自动加逗号
-    'comma-dangle': [2, 'only-multiline'],
+    'comma-dangle': [2, 'always-multiline'],
+    // 防止在 componentDidUpdate 中使用 setState
+    'react/no-did-update-set-state': 1,
+    // 防止直接修改 this.state
+    'react/no-direct-mutation-state': 2,
+    // 防止在 React 组件定义中丢失 displayName
+    'react/display-name': 2,
+    '@typescript-eslint/no-var-requires': 0,
     'prettier/prettier': 2,
   },
 };

@@ -12,16 +12,15 @@ import { RouterDefault } from '@my-types/route.type';
 /**
  * @param routes 路由配置数组， 包含 { path: '', component: () }
  */
-export default function creatRoutes(routes: RouterDefault[]): JSX.Element | null {
+function creatRoutes(routes: RouterDefault[]): JSX.Element | null {
   return routes.length > 0 ? (
     <Switch>
       {/* 当访问路径是 / 时重定向到默认首页 */}
       <Redirect exact from="/" to={routes[0].path} />
       {routes.map((tab) => {
-        return (
-          <Route exact path={tab.path} component={tab.component().default} key={tab.pageKey} />
-        );
+        return <Route exact path={tab.path} component={tab.component} key={tab.pageKey} />;
       })}
     </Switch>
   ) : null;
 }
+export default creatRoutes;

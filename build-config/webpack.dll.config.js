@@ -17,8 +17,8 @@
  */
 const path = require('path');
 const webpack = require('webpack');
-const { TRIPARITE_PATH, bundleDllFolder, bundleDllLibName } = require('./system-config');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { TRIPARITE_PATH, bundleDllFolder, bundleDllLibName } = require('./system-config');
 
 module.exports = {
   mode: 'production',
@@ -26,9 +26,10 @@ module.exports = {
     [bundleDllLibName]: [
       'react',
       'redux',
+      'react-dom',
       'react-redux',
       'redux-thunk',
-      'react-dom',
+      'redux-logger',
       'react-router',
       'react-router-dom',
     ],
@@ -47,6 +48,3 @@ module.exports = {
     }),
   ],
 };
-/**
- * 已完成
- */

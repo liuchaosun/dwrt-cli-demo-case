@@ -19,7 +19,6 @@ const mainPage = path.resolve(APP_PATH, './entries/common');
 const CreatPageConfig = require('../creat-page-config');
 
 module.exports = Object.assign(
-  {},
   {
     // 根据项目定制的宏变量
     defineVariable: {
@@ -31,6 +30,3 @@ module.exports = Object.assign(
   },
   CreatPageConfig(mainPage)
 );
-/**
- * 已完成
- */

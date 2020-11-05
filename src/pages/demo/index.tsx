@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { StoreState } from '@my-types/store.types';
 import { actionUpdateDemoMsg } from '@store/demo/action';
 
-import './index.css';
+import './index.less';
 /**
  * 采用泛型接口定义的方式约束组件中的内容，代替 Prop-types
  */

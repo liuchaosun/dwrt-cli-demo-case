@@ -79,6 +79,3 @@ module.exports = function (port, webpackConfig) {
     console.log('Your app is running at:  http://localhost:' + port);
   });
 };
-/**
- * 已完成
- */

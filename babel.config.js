@@ -24,19 +24,19 @@ const presets = [
 
 // 解析器插件
 const plugins = [
-  // 动态加载--防止错误处理import语法
+  // 用于代码分割--防止 babel 错误处理动态 import 语法
   '@babel/plugin-syntax-dynamic-import',
   // class 类属性： 宽松模式
   ['@babel/plugin-proposal-decorators', { legacy: true }],
   ['@babel/plugin-proposal-class-properties', { loose: true }],
-  // 按需加载 plugin-import，三方库 tree-shakeing
+  // 按需加载三方库（plugin-import，tree-shakeing）
   [
     'import',
     {
-      libraryName: 'antd',
-      libraryDirectory: 'es',
       // 自动引入组件的样式
       style: true,
+      libraryName: 'antd',
+      libraryDirectory: 'es',
     },
     'antd',
   ],
