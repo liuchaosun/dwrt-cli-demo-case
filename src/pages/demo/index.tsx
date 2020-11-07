@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { StoreState } from '@my-types/store.types';
 import { actionUpdateDemoMsg } from '@store/demo/action';
 
+import { ErrorReport } from '@utils/index';
+
 import './index.css';
 /**
  * 采用泛型接口定义的方式约束组件中的内容，代替 Prop-types
@@ -17,13 +19,16 @@ class WebSiteIndex extends Component<IndexProps> {
   componentDidMount() {
     this.props.updateMsg('新的展示信息');
   }
-
+  exp = () => {
+    ErrorReport('http://1.com', encodeURIComponent('加载失败'));
+  };
   render() {
     const { demoMesg } = this.props;
     return (
-      <div>
+      <div style={{ height: '2000px' }}>
         {demoMesg}
         <div className="black">1</div>
+        <button onClick={this.exp}>123</button>
       </div>
     );
   }
