@@ -11,6 +11,3 @@ const WebpackFunc = require('../webpack.dev.config');
 const CreatServer = require('../creat-server');
 
 CreatServer(8080, WebpackFunc(pageConf));
-/**
- * 已完成
- */

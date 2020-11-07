@@ -9,6 +9,3 @@ const WebpackProdConfFunc = require('../webpack.prod.config');
 const BuildPageFunc = require('../build-page');
 
 BuildPageFunc(WebpackProdConfFunc(pageConf));
-/**
- * 已完成
- */

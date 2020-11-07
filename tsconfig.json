@@ -11,17 +11,23 @@
       "@pages/*": [
         "src/pages/*"
       ],
-      "@common/*": [
-        "src/common/*"
-      ],
       "@store/*": [
         "src/store/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@images/*": [
+        "src/images/*"
+      ],
+      "@styles/*": [
+        "src/styles/*"
       ],
       "@my-types/*": [
         "src/my-types/*"
       ],
-      "@utils/*": [
-        "src/utils/*"
+      "@components/*": [
+        "src/components/*"
       ],
     }
   },

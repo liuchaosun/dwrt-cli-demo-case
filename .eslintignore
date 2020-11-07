@@ -4,4 +4,4 @@ node_modules
 dist
 
 # 编译模块的文件 不检测
-build-config
+# build-config

@@ -20,6 +20,3 @@ module.exports = function (config) {
     );
   });
 };
-/**
- * 已完成
- */

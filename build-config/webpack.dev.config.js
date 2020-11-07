@@ -5,11 +5,11 @@ process.env.NODE_ENV = 'development';
 
 const webpack = require('webpack');
 const { merge } = require('webpack-merge');
-// webpack 基础配置
-const BaseWebpackConfFunc = require('./webpack.base.config');
-
 // 优化二次构建速度, 开启缓存
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+
+// webpack 基础配置
+const BaseWebpackConfFunc = require('./webpack.base.config');
 
 module.exports = function ({ publicPathName, defineVariable, entries, htmlArray }) {
   // 基础配置
@@ -18,7 +18,7 @@ module.exports = function ({ publicPathName, defineVariable, entries, htmlArray 
   // @HMR 开启热重载的关键: 标记哪个模块需要进行热重载
   // exp: myIndex: ['xxx/entries/index/index','webpack-hot-middleware/client?reload=true']
   Object.keys(entries).forEach((entryName) => {
-    entries[entryName] = [entries[entryName]].concat('webpack-hot-middleware/client?reload=true');
+    entries[entryName] = [entries[entryName], 'webpack-hot-middleware/client?reload=true'];
   });
 
   // 开发环境配置
@@ -52,8 +52,6 @@ module.exports = function ({ publicPathName, defineVariable, entries, htmlArray 
       new webpack.optimize.OccurrenceOrderPlugin(),
       //  hot module replacement is somewhat self-explanatory
       new webpack.HotModuleReplacementPlugin(),
-      // no errors is used to handle errors more cleanly.
-      new webpack.NoEmitOnErrorsPlugin(),
 
       // 使用编译缓存
       new HardSourceWebpackPlugin(),
@@ -62,6 +60,3 @@ module.exports = function ({ publicPathName, defineVariable, entries, htmlArray 
 
   return merge(baseConfig, devConfig);
 };
-/**
- * 已完成
- */

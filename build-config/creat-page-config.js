@@ -1,6 +1,6 @@
 /**
  * 根据不同的传入参数生成不同的模块数据
- * 本文件主要是为了复杂的SPA项目设立
+ * 本文件主要是为了复杂的 SPA 项目设立
  */
 const fs = require('fs');
 const path = require('path');
@@ -11,11 +11,12 @@ const path = require('path');
  *  3. 第三个参数返回后面的 index 值，以此类推下去
  *  。。。
  */
+/* eslint-disable-next-line */
 let [nodeExe, exectPath, ...serverPages] = process.argv;
 console.log(`启动编译的页面是：${serverPages.length > 0 ? serverPages : '全部页面'}！\n`);
 
 module.exports = function (pages) {
-  // 如果pages是数组，则构建了多个项目模块
+  // 如果 pages 是数组，则构建了多个项目模块
   // 一般情况下只是一条独立的数据
   pages = Array.isArray(pages) ? pages : [pages];
 
@@ -39,13 +40,13 @@ module.exports = function (pages) {
         const indexFilePath = path.resolve(cur, filename + '/index');
         // 读取配置里的数据
         const fileConfig = require(path.resolve(cur, filename + '/config'));
-        return Object.assign({}, { entry: indexFilePath }, fileConfig);
+        return Object.assign({ entry: indexFilePath }, fileConfig);
       });
     // 合并所有项目模块到一个数组中
     return acc.concat(fileArray);
   }, []);
 
-  // 开发环境优化措施！！！
+  // * 开发环境优化措施！！！
   // 如果传入了几个确定需要编译的文件标识，则需要与 pageModuleKey 比对，只启动对符合条件文件的编译
   if (serverPages && serverPages.length > 0) {
     pageConfig = pageConfig.filter((item) => serverPages.indexOf(item.pageModuleKey) > -1);
@@ -63,6 +64,3 @@ module.exports = function (pages) {
     htmlArray: pageConfig.map((item) => item.htmlConfig),
   };
 };
-/**
- * 已完成
- */

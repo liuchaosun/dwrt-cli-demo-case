@@ -61,7 +61,7 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
       })
   );
 
-  // 基础样式 loader
+  // CSS 样式处理相关 loader
   const baseStyleLoader = [
     process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
     'css-loader',
@@ -84,7 +84,7 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
     output: {
       // 文件编译后输出的位置
       path: BUILD_PATH,
-      // 拼接到 script 标签里的请求前缀,静态资源统一请求前缀
+      // 拼接到 script 标签里的请求前缀, 静态资源统一请求前缀
       publicPath: publicPathName,
     },
 
@@ -95,16 +95,21 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
       // 自定义路径别名，降低引用复杂度
       alias: {
         '@': APP_PATH,
-        '@common': path.resolve(APP_PATH, './common'),
         '@pages': path.resolve(APP_PATH, './pages'),
         '@store': path.resolve(APP_PATH, './store'),
         '@utils': path.resolve(APP_PATH, './utils'),
+        '@images': path.resolve(APP_PATH, './images'),
+        '@styles': path.resolve(APP_PATH, './styles'),
         '@my-types': path.resolve(APP_PATH, './my-types'),
+        '@components': path.resolve(APP_PATH, './components'),
+        // 如果构建时发现外部多个三方库使用了相同的内容并且都打包了，可以在这里指定使用同一个资源，减少打包
+        'bn.js': path.resolve(process.cwd(), 'node_modules', 'bn.js'),
       },
     },
 
-    // 优化输出日志
+    // 优化输出日志, 只打印结果
     stats: 'errors-only',
+
     // 添加资源插件
     module: {
       rules: [
@@ -122,6 +127,13 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
                   // 开启less的js替换功能
                   javascriptEnabled: true,
                 },
+              },
+            },
+            {
+              // 全局 less 变量
+              loader: 'style-resources-loader',
+              options: {
+                patterns: [APP_PATH + '/styles/global-variables.less'],
               },
             },
           ]),
