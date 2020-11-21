@@ -9,14 +9,14 @@ export default function debounce(func: any, delay: number, immediate: boolean): 
     if (immediate) {
       const callNow = !timeout;
       if (callNow) {
-        func(...args);
+        func.call(this, ...args);
       }
       timeout = setTimeout(() => {
         timeout = null;
       }, delay);
     } else {
       timeout = setTimeout(() => {
-        func(...args);
+        func.call(this, ...args);
       }, delay);
     }
   };

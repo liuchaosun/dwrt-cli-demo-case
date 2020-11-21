@@ -1,4 +1,6 @@
 import { isValidHost } from './validity-check';
 import { ErrorReport } from './error-report';
 
-export { isValidHost, ErrorReport };
+import { isValidHTMLElement } from './judge';
+
+export { isValidHost, ErrorReport, isValidHTMLElement };

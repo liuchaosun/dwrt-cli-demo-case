@@ -8,7 +8,7 @@ module.exports = {
   plugins: {
     // 前缀补全,自动添加浏览器厂商前缀
     autoprefixer: {},
-    // 优化 css
+    // 优化 css--合并多余 css
     cssnano: {},
   },
 };

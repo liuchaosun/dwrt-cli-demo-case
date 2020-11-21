@@ -6,11 +6,13 @@
     "jsx": "react",
     "target": "es5", // 编译降级代码到es5
     "allowJs": true, // 允许编译 js
-    "strict": true, // 开启严格模式
+    "strict": true, // 开启所有严格模式检查
+    "alwaysStrict": true,
+    // "noImplicitAny": true, // 禁止默认推断为any
+    // "noImplicitReturns": true, // 禁止函数不填写返回值类型
+    // "noImplicitThis": true, // 错误,当没有明确指定类型this
     "sourceMap": true,
     "noEmitOnError": true, // 报错时不生成输出文件
-    "noImplicitAny": true, // 禁止默认推断为any
-    "noImplicitThis": true, // 错误,当没有明确指定类型this
     "noUnusedLocals": true, // 变量声明了但是未使用，报错
     "noUnusedParameters": true, // 参数定义了未使用，报错
     "allowSyntheticDefaultImports": true, // 允许对不包含默认导出的模块使用默认导入

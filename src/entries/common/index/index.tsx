@@ -13,19 +13,24 @@ import ReactDOM from 'react-dom';
 import store from './store';
 import { Provider } from 'react-redux';
 
+import { HashRouter } from 'react-router-dom';
+
 // router 页面路由
 import Routes from './router';
 
-const renderPage = (MyProject: React.FC) => {
+import './index.less';
+const renderPage = (MyProject) => {
   ReactDOM.render(
     <Provider store={store}>
-      <MyProject />
+      <HashRouter>
+        <MyProject />
+      </HashRouter>
     </Provider>,
-    document.getElementById('app')
+    document.getElementById('website-root-node')
   );
 };
 
-// @ToDo 发请求校验登录
+// ToDo 发请求校验登录
 
 // 获取到用户权限， 开启渲染
 renderPage(Routes);

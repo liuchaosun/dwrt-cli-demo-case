@@ -3,13 +3,14 @@
  * 可以在 dwrt-cli-config.js 文件中进行相应的覆盖重写
  */
 
+const fs = require('fs');
+const path = require('path');
+
 // 路径补足，加 ./ 强制路径变为相对路径
 function addPath(name) {
   return path.resolve(ROOT_PATH, './' + name);
 }
 
-const fs = require('fs');
-const path = require('path');
 // 根目录
 const ROOT_PATH = path.resolve(__dirname, '../');
 // 自定义配置文件位置

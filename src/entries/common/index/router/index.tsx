@@ -1,6 +1,9 @@
+/**
+ * 路由页面生成器
+ */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter } from 'react-router-dom';
 import { StoreState } from '@my-types/store.types';
 
 import routerFilter from './route-filter';
@@ -27,14 +30,4 @@ function mapStateToProps(state: StoreState) {
   };
 }
 
-const RouterPage = connect(mapStateToProps)(LocalRoute);
-/**
- * 路由页面生成器
- */
-export default function Routes(): JSX.Element {
-  return (
-    <HashRouter>
-      <RouterPage />
-    </HashRouter>
-  );
-}
+export default connect(mapStateToProps)(LocalRoute);

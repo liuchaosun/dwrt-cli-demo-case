@@ -1,16 +1,12 @@
 interface VoidFunc {
-  (): () => void;
+  (x?: any): () => void;
 }
 export default function throttle(func: VoidFunc, wait = 0) {
   let previous = 0;
-  return function () {
+  return function (...args: any[]) {
     const now = new Date().valueOf();
-    /* eslint-disable-next-line */
-    const context = this;
-    /* eslint-disable-next-line */
-    const args = arguments;
     if (now - previous > wait) {
-      func.apply(context, args);
+      func.call(this, ...args);
       previous = now;
     }
   };

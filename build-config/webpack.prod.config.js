@@ -37,7 +37,7 @@ const {
   bundleDllLibName,
 } = require('./system-config');
 
-module.exports = function ({ publicPathName, defineVariable, entries, htmlArray }) {
+module.exports = function ({ publicPathName, defineVariable, htmlArray, entries }) {
   // 通用配置
   let baseConfig = BaseWebpackConfFunc({ htmlArray, defineVariable, publicPathName });
 
@@ -130,7 +130,7 @@ module.exports = function ({ publicPathName, defineVariable, entries, htmlArray 
       function () {
         this.hooks.done.tap('done', (stats) => {
           if (stats.compilation.errors && stats.compilation.errors.length) {
-            // 可以将error发往指定地点
+            // todo 可以将error发往指定地点
             console.log(stats.compilation.errors);
             process.exit(1);
           }

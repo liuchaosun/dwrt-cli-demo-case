@@ -63,6 +63,7 @@ module.exports = {
     // 防止在 React 组件定义中丢失 displayName
     'react/display-name': 2,
     '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/no-explicit-any': 0,
     'prettier/prettier': 2,
   },
 };

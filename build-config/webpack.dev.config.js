@@ -11,7 +11,7 @@ const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 // webpack 基础配置
 const BaseWebpackConfFunc = require('./webpack.base.config');
 
-module.exports = function ({ publicPathName, defineVariable, entries, htmlArray }) {
+module.exports = function ({ publicPathName, defineVariable, htmlArray, entries }) {
   // 基础配置
   let baseConfig = BaseWebpackConfFunc({ htmlArray, defineVariable, publicPathName });
 
