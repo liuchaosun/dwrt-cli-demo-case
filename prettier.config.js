@@ -1,8 +1,6 @@
 // 开启后，代码编写阶段就进行格式校验和自动格式化
 // 官方资料：https://prettier.io/docs/en/options.html
 module.exports = {
-  // 文件一行最大长度，Default 80
-  printWidth: 100,
   // 每行末尾自动添加分号， Default	true
   semi: true,
   // 字符串使用单引号， Default false
