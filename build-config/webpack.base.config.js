@@ -63,7 +63,9 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
 
   // CSS 样式处理相关 loader
   const baseStyleLoader = [
-    process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
+    process.env.NODE_ENV === 'production'
+      ? MiniCssExtractPlugin.loader
+      : 'style-loader',
     'css-loader',
     // css增强
     {
@@ -199,7 +201,9 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
             // 统一前缀
             PUBLIC_PATH: JSON.stringify(publicPathName),
             // 是否开发环境
-            __DEVELOPMENT__: JSON.stringify(process.env.NODE_ENV === 'development'),
+            __DEVELOPMENT__: JSON.stringify(
+              process.env.NODE_ENV === 'development'
+            ),
           },
           defineVariable
         )
