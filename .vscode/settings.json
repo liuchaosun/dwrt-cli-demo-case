@@ -11,8 +11,6 @@
   "files.exclude": {
     "**/node_modules": false
   },
-  // 插入空白时使用空格
-  "editor.insertSpaces": true,
   // 粘贴时格式化
   "editor.formatOnPaste": false,
   // 保存时格式化

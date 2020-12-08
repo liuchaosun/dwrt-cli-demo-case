@@ -64,11 +64,7 @@ class WebSiteIndex extends Component<IndexProps> {
         <div className="black">1</div>
         <button onClick={this.exp}>123</button> */}
         <VirtualList listData={listData} />
-        {showModal && (
-          <Modal closeModal={this.closeModal}>
-            {() => '我是出现在中间的部分'}
-          </Modal>
-        )}
+        {showModal && <Modal closeModal={this.closeModal}>{() => '我是出现在中间的部分'}</Modal>}
 
         <FancyInput ref={this.myRef} />
       </div>
@@ -91,9 +87,7 @@ function mapStateToProps(state: StoreState): { demoMesg: string } {
  * 此对象会经过操作合并到 props 中并向下传递
  * @param dispatch <=== store.dispatch
  */
-function mapDispatchToProps(
-  dispatch: Dispatch
-): { updateMsg: (x: string) => void } {
+function mapDispatchToProps(dispatch: Dispatch): { updateMsg: (x: string) => void } {
   return {
     updateMsg(str: string) {
       dispatch(actionUpdateDemoMsg(str));

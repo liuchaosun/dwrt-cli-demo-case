@@ -48,20 +48,19 @@ module.exports = {
   rules: {
     // 必须使用 ===
     eqeqeq: [2, 'always'],
-    // 不允许和空值做比较
+    // 不允许 == 与 null 做比较
     'no-eq-null': 2,
-    //  debugger 警告
     'no-debugger': 1,
     'no-console': 0,
     // 对var禁止
     'no-var': 2,
     // 对象，换行后字段末尾自动加逗号
     'comma-dangle': [2, 'always-multiline'],
-    // 防止在 componentDidUpdate 中使用 setState
+    // 在 componentDidUpdate 中使用 setState 时报警
     'react/no-did-update-set-state': 1,
     // 防止直接修改 this.state
     'react/no-direct-mutation-state': 2,
-    // 防止在 React 组件定义中丢失 displayName
+    // React 组件需要定义 displayName
     'react/display-name': 2,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/no-explicit-any': 0,

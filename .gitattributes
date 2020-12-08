@@ -10,8 +10,6 @@
 *.jpg  -text
 *.png  -text
 
-*.sh		   text eol=lf
-
 # 开启所有
 * eol=lf
 

@@ -9,8 +9,6 @@ module.exports = {
   quoteProps: 'as-needed',
   // jsx不使用单引号， Default false
   jsxSingleQuote: false,
-  // 末尾需要逗号，这个配置交给 eslint 去做了
-  // trailingComma: 'es5',
   // 大括号内的首尾需要空格， Default true
   bracketSpacing: true,
   // jsx的标签的反尖括号保持同行， Default false

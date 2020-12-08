@@ -12,9 +12,5 @@ indent_size = 2
 indent_style = space
 # Unix-style newlines with a newline ending every file：文末新行
 insert_final_newline = true
-max_line_length = 80
+max_line_length = 100
 trim_trailing_whitespace = true
-
-[*.md]
-insert_final_newline = true
-trim_trailing_whitespace = false
