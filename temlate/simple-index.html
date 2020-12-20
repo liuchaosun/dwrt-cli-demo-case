@@ -16,5 +16,16 @@
       <p>需要浏览器支持js</p>
     </noscript>
     <div id="website-root-node"></div>
+
+    <script>
+      window.addEventListener('load', function () {
+        Notification.requestPermission(function (status) {
+          // 这将使我们能在 Chrome/Safari 中使用 Notification.permission
+          if (Notification.permission !== status) {
+            Notification.permission = status;
+          }
+        });
+      });
+    </script>
   </body>
 </html>

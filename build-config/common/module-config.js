@@ -16,7 +16,7 @@ const path = require('path');
 const { APP_PATH } = require('../system-config');
 const mainPage = path.resolve(APP_PATH, './entries/common');
 
-const CreatPageConfig = require('../creat-page-config');
+const CreatePageConfig = require('../create-page-config');
 
 module.exports = Object.assign(
   {
@@ -28,5 +28,5 @@ module.exports = Object.assign(
     // 编译后的静态资源请求链接的统一前缀
     publicPathName: '/common/',
   },
-  CreatPageConfig(mainPage)
+  CreatePageConfig(mainPage)
 );
