@@ -4,6 +4,7 @@
 process.env.NODE_ENV = 'development';
 
 const webpack = require('webpack');
+
 const { merge } = require('webpack-merge');
 // 优化二次构建速度, 开启缓存
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');

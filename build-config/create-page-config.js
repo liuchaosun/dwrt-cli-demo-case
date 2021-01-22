@@ -1,6 +1,6 @@
 /**
  * 根据不同的传入参数生成不同的模块数据
- * 本文件主要是为了复杂的 SPA 项目设立
+ * 本文件主要是为了复杂的 MPA 项目设立
  */
 const fs = require('fs');
 const path = require('path');
@@ -18,6 +18,7 @@ console.log(`启动编译的页面是：${serverPages.length > 0 ? serverPages :
 module.exports = function (pages) {
   // 如果 pages 是数组，则构建了多个项目模块
   // 一般情况下只是一条独立的数据
+  // ！！ 这里是定制化项目构建的一个关键步骤
   pages = Array.isArray(pages) ? pages : [pages];
 
   /**

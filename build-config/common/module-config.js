@@ -12,8 +12,10 @@
  *    4. publicPathName：静态资源链接统一前缀
  */
 const path = require('path');
-// 需要编译的页面
+
 const { APP_PATH } = require('../system-config');
+
+// 项目入口
 const mainPage = path.resolve(APP_PATH, './entries/common');
 
 const CreatePageConfig = require('../create-page-config');

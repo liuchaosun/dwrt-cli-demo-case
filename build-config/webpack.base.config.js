@@ -11,8 +11,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const {
-  BUILD_PATH,
   APP_PATH,
+  BUILD_PATH,
   TEMPLATE_PATH,
   TRIPARITE_PATH,
   TRIPARITE_PATH_NAME,
@@ -54,7 +54,7 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
           // 收起成一行：是否保留换行
           preserveLineBreaks: false,
         },
-        //如果使用webpack4将该配置项设置为'none'
+        //如果使用 webpack4 将该配置项设置为'none'
         chunksSortMode: 'none',
         // 自定义参数
         BASE_URL: publicPathName,
@@ -63,19 +63,17 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
 
   // CSS 样式处理相关 loader
   const baseStyleLoader = [
-    process.env.NODE_ENV === 'production'
-      ? MiniCssExtractPlugin.loader
-      : 'style-loader',
+    process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
     'css-loader',
     // css增强
     {
       loader: 'postcss-loader',
-      options: {
-        postcssOptions: {
-          // * 修改配置文件的查找目录，收敛到当前目录下
-          config: path.resolve(__dirname, './postcss.config.js'),
-        },
-      },
+      // options: {
+      //   postcssOptions: {
+      //     // * 可以修改配置文件的查找目录，收敛到当前目录下
+      //     config: path.resolve(__dirname, './postcss.config.js'),
+      //   },
+      // },
     },
   ];
 
@@ -126,7 +124,7 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
               loader: 'less-loader',
               options: {
                 lessOptions: {
-                  // 开启less的js替换功能
+                  // 开启 less 的 js 替换功能
                   javascriptEnabled: true,
                 },
               },
@@ -141,7 +139,9 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
           ]),
         },
         {
+          include: APP_PATH,
           test: /\.(t|j)sx?$/,
+          exclude: /node_modules/,
           use: [
             {
               loader: 'thread-loader',
@@ -151,8 +151,6 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
             },
             'babel-loader?cacheDirectory=true',
           ],
-          include: APP_PATH,
-          exclude: /node_modules/,
         },
         {
           test: /\.(png|gif|svg|jpg)$/,
@@ -201,9 +199,7 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
             // 统一前缀
             PUBLIC_PATH: JSON.stringify(publicPathName),
             // 是否开发环境
-            __DEVELOPMENT__: JSON.stringify(
-              process.env.NODE_ENV === 'development'
-            ),
+            __DEVELOPMENT__: JSON.stringify(process.env.NODE_ENV === 'development'),
           },
           defineVariable
         )

@@ -1,13 +1,13 @@
 /**
  * 启动函数 createServer
- * 开发环境配置生成函数 WebpackFunc
+ * 开发环境配置生成函数 WebpackDevConfFunc
  * 传递的参数 pageConf
  */
 // 1
 const pageConf = require('./module-config');
 // 2
-const WebpackFunc = require('../webpack.dev.config');
+const WebpackDevConfFunc = require('../webpack.dev.config');
 // 3
 const CreateServer = require('../create-server');
 
-CreateServer(8080, WebpackFunc(pageConf));
+CreateServer(8080, WebpackDevConfFunc(pageConf));

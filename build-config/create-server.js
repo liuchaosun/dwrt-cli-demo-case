@@ -46,14 +46,14 @@ module.exports = function (port, webpackConfig) {
   app.use(
     WebpackDevMiddleware(webpackCompiler, {
       quiet: true,
-      // 决定 html 文件中的静态资源链接前是否有前缀
-      publicPath: webpackConfig.output.publicPath,
       // 控制台打印信息
       stat: {
         colors: true,
         chunks: false,
       },
       hot: true, // 热更新第一步：开启热重载模式
+      // 决定 html 文件中的静态资源链接前是否有前缀
+      publicPath: webpackConfig.output.publicPath,
     })
   );
 
