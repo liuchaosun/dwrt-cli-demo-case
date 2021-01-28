@@ -6,8 +6,8 @@
 // 1
 const pageConf = require('./module-config');
 // 2
-const WebpackDevConfFunc = require('../webpack.dev.config');
+const WebpackDevConfFunc = require('../../build-config/webpack.dev.config');
 // 3
-const CreateServer = require('../create-server');
+const CreateServer = require('../../build-config/create-server');
 
 CreateServer(8080, WebpackDevConfFunc(pageConf));

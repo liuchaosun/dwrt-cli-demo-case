@@ -12,34 +12,28 @@ const WebpackHotMiddleware = require('webpack-hot-middleware');
 // http 路由中间件
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-// 开发环境需要被代理的路由列表
-// 代理前：http://localhost:8080/user/login
-// 代理后：http://www.exmple.com/user/login
-const proxyTables = [
-  {
-    url: '/user/login',
-    options: 'http://www.exmple.com',
-  },
-  {
-    url: '/user/logout',
-    options: 'http://www.exmple.com',
-  },
-];
+const { proxyTables } = require('./system-config');
 
+/**
+ * 开发环境生成器
+ * @param {*} port
+ * @param {*} webpackConfig
+ */
 module.exports = function (port, webpackConfig) {
   const app = Express();
 
   // 路由注入
-  proxyTables.forEach((item) => {
-    let context = item.options;
-    if (typeof context === 'string') {
-      context = {
-        target: context,
-        changeOrigin: true,
-      };
-    }
-    app.use(item.url, createProxyMiddleware(context));
-  });
+  proxyTables.length > 0 &&
+    proxyTables.forEach((item) => {
+      let context = item.options;
+      if (typeof context === 'string') {
+        context = {
+          target: context,
+          changeOrigin: true,
+        };
+      }
+      app.use(item.url, createProxyMiddleware(context));
+    });
 
   // webpack 编译配置后，加入服务器中间件
   const webpackCompiler = Webpack(webpackConfig);

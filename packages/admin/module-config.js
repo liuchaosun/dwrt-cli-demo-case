@@ -13,12 +13,12 @@
  */
 const path = require('path');
 
-const { APP_PATH } = require('../system-config');
+const { APP_PATH } = require('../../../build-config/system-config');
 
 // 项目入口
 const mainPage = path.resolve(APP_PATH, './entries/common');
 
-const CreatePageConfig = require('../create-page-config');
+const CreatePageConfig = require('../../../build-config/create-page-config');
 
 module.exports = Object.assign(
   {

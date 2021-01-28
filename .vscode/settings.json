@@ -9,7 +9,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   // 不显示在文件目录
   "files.exclude": {
-    "**/node_modules": false
+    "**/node_modules": true
   },
   // 粘贴时格式化
   "editor.formatOnPaste": false,

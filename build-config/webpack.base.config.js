@@ -61,11 +61,10 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
       })
   );
 
-  // CSS 样式处理相关 loader
+  // CSS 相关 loader
   const baseStyleLoader = [
     process.env.NODE_ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
     'css-loader',
-    // css增强
     {
       loader: 'postcss-loader',
       // options: {
@@ -100,7 +99,6 @@ module.exports = function ({ htmlArray, defineVariable, publicPathName }) {
         '@utils': path.resolve(APP_PATH, './utils'),
         '@images': path.resolve(APP_PATH, './images'),
         '@styles': path.resolve(APP_PATH, './styles'),
-        '@my-types': path.resolve(APP_PATH, './my-types'),
         '@components': path.resolve(APP_PATH, './components'),
         // 如果构建时发现外部多个三方库使用了相同的内容并且都打包了，可以在这里指定使用同一个资源，减少打包
         'bn.js': path.resolve(process.cwd(), 'node_modules', 'bn.js'),

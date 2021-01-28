@@ -27,14 +27,14 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const BaseWebpackConfFunc = require('./webpack.base.config');
 
 const {
-  JS_PATH,
-  CSS_PATH,
-  TRIPARITE_PATH,
-  TRIPARITE_PATH_NAME,
   analysisBuildAssets,
   bundleDllReact,
   bundleDllFolder,
   bundleDllLibName,
+  CSS_PATH,
+  JS_PATH,
+  TRIPARITE_PATH,
+  TRIPARITE_PATH_NAME,
 } = require('./system-config');
 
 module.exports = function ({ publicPathName, defineVariable, htmlArray, entries }) {
@@ -129,9 +129,11 @@ module.exports = function ({ publicPathName, defineVariable, htmlArray, entries 
       // 构建完毕会触发 done, 自定义编译出错后的处理
       function () {
         this.hooks.done.tap('done', (stats) => {
-          if (stats.compilation.errors && stats.compilation.errors.length) {
+          console.log('--------构建结束--------');
+          const errors = stats.compilation.errors;
+          if (errors && errors.length) {
             // todo 可以将error发往指定地点
-            console.log(stats.compilation.errors);
+            console.log(errors);
             process.exit(1);
           }
         });

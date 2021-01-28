@@ -4,13 +4,12 @@
   "private": true,
   "description": "Dwrt-cli",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "cz": "git cz",
     "eslint": "eslint --fix ./src --ext .ts,.tsx,.js",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "dll": "webpack --config ./build-config/webpack.dll.config.js",
-    "dev": "node ./build-config/common/dev.js",
-    "build": "node ./build-config/common/prod.js"
+    "dev:admin": "node ./packages/admin/dev.js",
+    "build:admin": "node ./packages/admin/prod.js"
   },
   "keywords": [
     "docker",

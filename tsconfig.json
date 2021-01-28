@@ -2,7 +2,7 @@
   "extends": "./build-config/tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./build",
-    // 帮助 vscode 识别 alias
+    // 帮助 vscode 识别 webpack alias
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -23,16 +23,13 @@
       "@styles/*": [
         "src/styles/*"
       ],
-      "@my-types/*": [
-        "src/my-types/*"
-      ],
       "@components/*": [
         "src/components/*"
       ],
     }
   },
-  // 设置一个默认的文本读取目录，如果没有此配置则读取所有文件，除了配置 exclude
+  // 设置一个默认的读取目录，如果没有此配置则读取所有文件，除了配置 exclude
   "include": [
-    "./src/**/*"
+    "./src/**/*",
   ]
 }

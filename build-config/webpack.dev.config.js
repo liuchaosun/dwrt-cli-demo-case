@@ -36,8 +36,8 @@ module.exports = function ({ publicPathName, defineVariable, htmlArray, entries 
     module: {
       rules: [
         {
-          test: /\.(j|t)sx?$/,
           enforce: 'pre',
+          test: /\.(j|t)sx?$/,
           loader: 'eslint-loader',
           exclude: /node_modules/,
           options: {

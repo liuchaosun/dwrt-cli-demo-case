@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { StoreState } from '@my-types/store.types';
 
 import routerFilter from './route-filter';
-import creatRoutes from '@/entries/_routes/first';
+import creatRoutes from '@/enteris/_routes/first';
 
 interface IProps {
   userPages: string[];
